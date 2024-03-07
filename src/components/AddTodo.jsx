@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
+import { TodoActions } from "../app/TodoSlice";
 
 export default function AddTodo() {
   const dispatch = useDispatch();
@@ -15,10 +16,7 @@ export default function AddTodo() {
   };
 
   const handleAddItem = () => {
-    dispatch({
-      type: "ADD_ITEM",
-      payload: { itemName: itemName, itemDate: itemDate },
-    });
+    dispatch(TodoActions.addItem({ itemName: itemName, itemDate: itemDate }));
 
     setItemDate("");
     setItemName("");

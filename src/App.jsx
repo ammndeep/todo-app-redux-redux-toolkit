@@ -5,6 +5,7 @@ import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/TodoItems";
 import WelcomeMessage from "./components/WelcomeMessage";
 import { useDispatch, useSelector } from "react-redux";
+import { DarkModeActions } from "./app/DarkModeSlice";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -16,13 +17,7 @@ export default function App() {
       >
         <div className="flex justify-center items-center gap-10">
           <h1 className="text-4xl font-medium m-3">TODO List</h1>
-          <button
-            onClick={() =>
-              dispatch({
-                type: "TOGGLE_THEME",
-              })
-            }
-          >
+          <button onClick={() => dispatch(DarkModeActions.toggleTheme())}>
             {darkMode ? (
               <BsFillMoonStarsFill size={24} />
             ) : (
